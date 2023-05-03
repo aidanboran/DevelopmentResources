@@ -1,0 +1,80 @@
+0. General Tools
+===================
+sudo apt update
+
+sudo apt-get install ffmpeg
+
+sudo apt install snapd
+
+sudo snap install btop
+sudo apt-get install toilet figlet
+
+remote manager
+
+ sudo apt-get install ubuntu-gnome-desktop
+ sudo apt-get install lightdm
+ sudo apt install gnome-tweak-tool
+
+
+ https://learn.microsoft.com/en-us/azure/virtual-machines/linux/use-remote-desktop?tabs=azure-cli
+     sudo apt-get -y install xrdp
+sudo systemctl enable xrdp
+
+
+1. FILES/DIRECTORIES
+=====================
+
+mkdir -p GaitKeeper/Releases/D5.0.0/
+
+figlet -f slant GAITKEEPER
+ toilet -f pagga "  Azure GK3 Dev  "
+  sudo vi /etc/motd
+
+(for RDP access)
+sudo adduser gkadmin 
+sudo usermod -aG sudo gkadmin 
+
+
+
+2. NODEJS
+===========
+curl -sL https://deb.nodesource.com/setup_12.x -o /tmp/nodesource_setup.sh
+sudo bash /tmp/nodesource_setup.sh
+sudo apt-get install -y nodejs
+node -v
+npm -v
+
+sudo npm install pm2 -g
+
+
+3. MONGODB
+==========
+
+ wget -qO - https://www.mongodb.org/static/pgp/server-3.6.asc | sudo apt-key add -
+  echo "deb [ arch=amd64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/3.6 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.6.list
+   sudo apt-get update
+sudo apt-get install -y mongodb-org=3.6.23 mongodb-org-server=3.6.23 mongodb-org-shell=3.6.23 mongodb-org-mongos=3.6.23 mongodb-org-tools=3.6.23
+
+ sudo systemctl start mongod
+ sudo systemctl daemon-reload
+   sudo systemctl status mongod
+  sudo systemctl enable mongod
+
+sudo apt --fix-broken install
+   wget https://downloads.mongodb.com/compass/mongodb-compass_1.35.0_amd64.deb
+   sudo dpkg -i mongodb-compass_1.35.0_amd64.deb
+
+  4. GaitKeeper NODEJS APP
+  =========================
+
+cd GaitKeeper/Releases/D5.0.0
+git clone https://github.com/aidanboran/GKServer
+
+	aidanboran
+	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
+
+mv GKServer gk_ui.pwa
+
+
+  5. GaitKeeper AI Server
+  =========================
